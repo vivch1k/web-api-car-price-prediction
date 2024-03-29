@@ -5,48 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="vieport" content="width=device-width, initial-scale=1.0">
     <title>Car Price Prediction</title>
-    <link href="{{ url_for('frontend-static', path='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('frontend-static', path='style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h1>Car Price Prediction</h1>
+    <div class="label">
+        <h1>Car Price Prediction</h1>
+    </div>
+
     <div class="input">
         <form method="post", action="/predict/">
 
-            <div class="">
+            <div class="form-group-input">
                 <label for="year">Year:</label>
                 <input id="year" name="year" type="number"><br><br>
             </div>
 
 
-            <div class="drivetrain">
+            <div class="form-group-input">
                 <label for="drivetrain">Drivetrain:</label>
                 <input id="drivetrain" name="drivetrain" type="text"><br><br>
             </div>
             
-            <div class="transmission">
+            <div class="form-group-input">
                 <label for="transmission">Transmission:</label> 
                 <input id="transmission" name="transmission" type="text"><br><br>
             </div>
 
-            <div class="fueltype">
+            <div class="form-group-input">
                 <label for="fueltype">Fuel type:</label>
                 <input id="fueltype" name="fueltype" type="text"><br><br>
             </div>
 
-            <div class="horsepower">
+            <div class="form-group-input">
                 <label for="horsepower">Horsepower:</label>
                 <input id="horsepower" name="horsepower" type="number"><br><br>
             </div>
 
-            <div class="fueltank">
+            <div class="form-group-input">
                 <label for="fueltank ">Fuel tank:</label>
                 <input id="fueltank" name="fueltank" type="number"><br><br>
             </div>
 
-    
-            <div class="submit">
-                <button type="submit">Forecast</button>
-            </div>
+            <button class="submit" type="submit">Forecast</button>
         </form>
     </div>
     <div class="result">
