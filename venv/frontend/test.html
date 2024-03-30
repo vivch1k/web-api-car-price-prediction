@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="vieport" content="width=device-width, initial-scale=1.0">
     <title>Car Price Prediction</title>
-    <link href="{{ url_for('frontend-static', path='style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('frontend-static', path='css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="label">
@@ -50,7 +50,7 @@
         </form>
     </div>
     <div class="result">
-        <p>The approximate cost of the car: {{pred}} rub</p>
+        <p>The approximate cost of the car: {{pred}}</p>
     </div>
 </body>
 </html>

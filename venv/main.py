@@ -42,7 +42,8 @@ def predict_price(request: Request, year: int = Form(...), drivetrain: str = For
     FuelTankCapacity = imput_dict['FuelTankCapacity']
 
     pred = int(prediction([[Year, Drivetrain, Transmission, FuelType, MaxPower, FuelTankCapacity]]))
-
+    pred = '{0:,}'.format(pred).replace(',', ' ')
+    pred = str(pred) + " rub."
 
     return templates.TemplateResponse('test.html', context={'request': request, 'pred': pred})
     
