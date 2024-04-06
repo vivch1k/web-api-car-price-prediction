@@ -24,24 +24,25 @@ def main(request: Request):
     return templates.TemplateResponse("test.html", {"request" : request})
 
 @app.post('/predict/')
-def predict_price(request: Request, year: int = Form(...), drivetrain: str = Form(...),
-                   transmission: str = Form(...), fueltype: str = Form(...), 
-                   horsepower: int = Form(...), fueltank: int = Form(...)):
+def predict_price(request: Request, year: int = Form(...), vehicle_type: str = Form(...), 
+                  drivetrain: str = Form(...), transmission: str = Form(...), 
+                   engine_hp: int = Form(...), highway: int = Form(...), city: int = Form(...)):
 
     # global pred
 
-    imput_dict = {'Year' : year, 'Drivetrain' : drivetrain,
-                   'Transmission' : transmission, 'FuelType' : fueltype,
-                     'MaxPower' : horsepower, 'FuelTankCapacity' : fueltank}
+    imput_dict = {'year' : year, 'vehicle_type' : vehicle_type, 'drivetrain' : drivetrain,
+                   'transmission' : transmission, 'engine_hp' : engine_hp,
+                   'highway': highway , 'city': city}
 
-    Year = imput_dict['Year']
-    Drivetrain = imput_dict['Drivetrain']
-    Transmission = imput_dict['Transmission']
-    FuelType = imput_dict['FuelType']
-    MaxPower = imput_dict['MaxPower']
-    FuelTankCapacity = imput_dict['FuelTankCapacity']
+    year = imput_dict['year']
+    vehicle_type = imput_dict['vehicle_type']
+    drivetrain = imput_dict['drivetrain']
+    transmission = imput_dict['transmission']
+    engine_hp = imput_dict['engine_hp']
+    highway = imput_dict['highway']
+    city = imput_dict['city']
 
-    pred = int(prediction([[Year, Drivetrain, Transmission, FuelType, MaxPower, FuelTankCapacity]]))
+    pred = int(prediction([[year, vehicle_type, drivetrain, transmission, engine_hp, highway, city]]))
     pred = '{0:,}'.format(pred).replace(',', ' ')
     pred = str(pred) + " rub."
 
