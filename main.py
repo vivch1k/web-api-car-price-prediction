@@ -48,6 +48,3 @@ def predict_price(request: Request, year: int = Form(...), vehicle_type: str = F
 
     return templates.TemplateResponse('test.html', context={'request': request, 'pred': pred})
     
-
-
-
