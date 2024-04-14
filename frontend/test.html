@@ -2,153 +2,144 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Crop Recommendation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
     <link href="{{ url_for('frontend-static', path='css/style.css') }}" rel="stylesheet">
 </head>
+
 <body>
-	<div class="container">
-		<h1>Crop Recommendation</h1>
-		<div class="flex__container">
-			<div class="left">
-				<div class="info">
-					<h2 class="info__title">
-						Information
-					</h2>
-					<p class="info__text">
-						Crop recommendation is one of the most important aspects of precision agriculture. Crop
-						recommendations are
-						based on a number of factors. Precision agriculture seeks to define these criteria on a
-						site-by-site basis
-						in
-						order to address crop selection issues. While the "site-specific" methodology has improved
-						performance,
-						there
-						is still a need to monitor the systems' outcomes.Precision agriculture systems aren't all
-						created equal.
-						However, in agriculture, it is critical that the recommendations made are correct and precise,
-						as errors can
-						result in significant material and capital loss.
-					</p>
-				</div>
-				<div class="how-it-works">
-					<h2>How does it work?</h2>
-					<p>
-						Complete all the parameters and the machine learning model will predict the most suitable crops
-						to grow in a
-						particular farm based on various parameters.
-					</p>
-				</div>
-				<div class="results">
-					<h2>Results</h2>
-					<p>Pigeonpeas are recommended by the A.I for your farm.</p>
+    <div class="container">
+        <h1>Car value prediction</h1>
+        <div class="flex__container">
+            <div class="left">
+                <div class="info">
+                    <h2 class="info__title">
+                        Information
+                    </h2>
+                    <p class="info__text">
+                        Predicting the value of a car is essential for both buyers and sellers in the automotive market.
+                        Accurate valuation models can help in setting fair prices and making informed decisions. Our
+                        AI-driven valuation takes into account various parameters including year of manufacture, make
+                        and model, vehicle type, drivetrain, transmission, engine horsepower, and fuel efficiency.
+                    </p>
+                </div>
+                <div class="how-it-works">
+                    <h2>How does it work?</h2>
+                    <p>
+                        Enter all relevant details about your car, and our machine learning model will estimate its
+                        current market value. The model analyzes historical data, depreciation trends, and current
+                        market conditions to provide a reliable price estimate. </p>
+                </div>
+                <div class="results">
+                    <h2>Results</h2>
                     <p>The approximate cost of the car: {{pred}}</p>
-				</div>
-			</div>
-			<div class="right">
-				<form method="post", action="/predict/">
-					<h2>Find out the most suitable crop to grow in your farm</h2>
+                </div>
+            </div>
+            <div class="right">
+                <form method="post" , action="/predict/">
+                    <h2>Find out the most suitable crop to grow in your farm</h2>
                     <div class="parameter">
                         <label for="year">Year:</label>
                         <div class="parameter__input">
-							<input id="year" name="year" type="number">
-							<button class="input__button" onclick="decrementValue('year')">-</button>
-							<button class="input__button" onclick="incrementValue('year')">+</button>
-						</div>
-                        
+                            <input id="year" name="year" type="number">
+                            <button class="input__button" onclick="decrementValue('year')">-</button>
+                            <button class="input__button" onclick="incrementValue('year')">+</button>
+                        </div>
+
                     </div>
-        
-        
+
+
                     <div class="parameter">
                         <label for="vehicle_type">Vehicle type:</label>
                         <div class="parameter__input">
-							<input id="vehicle_type" name="vehicle_type" type="text">
-						</div>
-                        
+                            <input id="vehicle_type" name="vehicle_type" type="text">
+                        </div>
+
                     </div>
-                    
+
                     <div class="parameter">
-                        <label for="drivetrain">Drivetrain:</label> 
+                        <label for="drivetrain">Drivetrain:</label>
                         <div class="parameter__input">
-							<input id="drivetrain" name="drivetrain" type="text">
-						</div>
-                        
+                            <input id="drivetrain" name="drivetrain" type="text">
+                        </div>
+
                     </div>
-        
+
                     <div class="parameter">
                         <label for="transmission">Transmission:</label>
                         <div class="parameter__input">
                             <input id="transmission" name="transmission" type="text">
-						</div>
+                        </div>
 
                     </div>
-        
+
                     <div class="parameter">
                         <label for="engine_hp">Engine HP:</label>
                         <div class="parameter__input">
                             <input id="engine_hp" name="engine_hp" type="number">
-							<button class="input__button" onclick="decrementValue('engine_hp')">-</button>
-							<button class="input__button" onclick="incrementValue('engine_hp')">+</button>
-						</div>
+                            <button class="input__button" onclick="decrementValue('engine_hp')">-</button>
+                            <button class="input__button" onclick="incrementValue('engine_hp')">+</button>
+                        </div>
 
 
                     </div>
-        
+
                     <div class="parameter">
                         <label for="highway">Highway l/100km:</label>
                         <div class="parameter__input">
                             <input id="highway" name="highway" type="number">
-							<button class="input__button" onclick="decrementValue('highway')">-</button>
-							<button class="input__button" onclick="incrementValue('highway')">+</button>
-						</div>
+                            <button class="input__button" onclick="decrementValue('highway')">-</button>
+                            <button class="input__button" onclick="incrementValue('highway')">+</button>
+                        </div>
 
                     </div>
-        
+
                     <div class="parameter">
                         <label for="city">City l/100km:</label>
                         <div class="parameter__input">
                             <input id="city" name="city" type="number"><br><br>
-							<button class="input__button" onclick="decrementValue('city')">-</button>
-							<button class="input__button" onclick="incrementValue('city')">+</button>
-						</div>
+                            <button class="input__button" onclick="decrementValue('city')">-</button>
+                            <button class="input__button" onclick="incrementValue('city')">+</button>
+                        </div>
 
                     </div>
-					<button class="predict-btn" type="submit">Predict</button>
-					<!-- Repeat for each parameter -->
-				</form>
-			</div>
-		</div>
-		<div class="note">
-			<p>Note: This A.I application is for educational/demo purposes only and cannot be relied upon. Check
-				the
-				source
-				code here.</p>
-		</div>
-	</div>
+                    <button class="predict-btn" type="submit">Predict</button>
+                    <!-- Repeat for each parameter -->
+                </form>
+            </div>
+        </div>
+        <div class="note">
+            <p>Note: This A.I application is for educational/demo purposes only and cannot be relied upon. Check
+                the
+                source
+                code <a href="https://github.com/vivch1k/web-api-car-price-prediction/tree/master">here</a>.</p>
+        </div>
+    </div>
 </body>
 <script>
-	const buttons = document.querySelectorAll('.input__button');
-	console.log(buttons);
-	for (let i = 0; i < buttons.length; i++) {
-		buttons[i].addEventListener('click', function (e) {
-			e.preventDefault();
-		});
-	}
+    const buttons = document.querySelectorAll('.input__button');
+    console.log(buttons);
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+    }
 
-	function incrementValue(inputId) {
-		let value = parseInt(document.getElementById(inputId).value, 10);
-		value = isNaN(value) ? 0 : value;
-		value++;
-		document.getElementById(inputId).value = value;
-	}
+    function incrementValue(inputId) {
+        let value = parseInt(document.getElementById(inputId).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById(inputId).value = value;
+    }
 
-	function decrementValue(inputId) {
-		let value = parseInt(document.getElementById(inputId).value, 10);
-		value = isNaN(value) ? 0 : value;
-		value < 1 ? value = 0 : value--;
-		document.getElementById(inputId).value = value;
-	}
-	// Место для функции predict, которая будет отправлять данные и получать предсказание
+    function decrementValue(inputId) {
+        let value = parseInt(document.getElementById(inputId).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 0 : value--;
+        document.getElementById(inputId).value = value;
+    }
+    // Место для функции predict, которая будет отправлять данные и получать предсказание
 </script>
+
 </html>
