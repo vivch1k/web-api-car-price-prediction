@@ -10,12 +10,12 @@
 
 <body>
     <div class="container">
-        <h1>Car value prediction</h1>
+        <h1>Car value calculator<span class="emoji">🚗</span></h1>
         <div class="flex__container">
             <div class="left">
                 <div class="info">
-                    <h2 class="info__title">
-                        Information
+                    <h2 class="info__title">    
+                        Information <span class="emoji">📜</span>
                     </h2>
                     <p class="info__text">
                         Predicting the value of a car is essential for both buyers and sellers in the automotive market.
@@ -25,26 +25,26 @@
                     </p>
                 </div>
                 <div class="how-it-works">
-                    <h2>How does it work?</h2>
-                    <p>
+                    <h2>How does it work?<span class="emoji">🔧</span></h2>
+                    <p class = "howit">
                         Enter all relevant details about your car, and our machine learning model will estimate its
                         current market value. The model analyzes historical data, depreciation trends, and current
                         market conditions to provide a reliable price estimate. </p>
                 </div>
                 <div class="results">
-                    <h2>Results</h2>
-                    <p>The approximate cost of the car: {{pred}}</p>
+                    <h2>Results<span class="emoji">📈</span></h2>
+                    <p>The approximate cost of the car: <span class="bold">{{pred}}</span></p>
                 </div>
             </div>
             <div class="right">
                 <form method="post" , action="/predict/">
-                    <h2>Estimate Your Car's Market Value <span class="emoji">🚗</span></h2>
+                    <h2>Estimate Your Car's Market Value <span class="emoji">💳</span></h2>
                     <div class="parameter">
                         <label for="year">Year:</label>
                         <div class="parameter__input">
                             <input id="year" name="year" type="number">
-                            <button class="input__button" onclick="decrementValue('year')">-</button>
-                            <button class="input__button" onclick="incrementValue('year')">+</button>
+                            <button class="input__button" data-action="decrement" onclick="decrementValue('year')">-</button>
+                            <button class="input__button" data-action="increment" onclick="incrementValue('year')">+</button>
                         </div>
 
                     </div>
@@ -53,33 +53,51 @@
                     <div class="parameter">
                         <label for="vehicle_type">Vehicle type:</label>
                         <div class="parameter__input">
-                            <input id="vehicle_type" name="vehicle_type" type="text">
+                            <select id="vehicle_type" name="vehicle_type">
+                                <option value="Sedan">Sedan</option>
+                                <option value="Suv">SUV</option>
+                                <option value="Pickup">Pickup</option>
+                                <option value="Coupe">Coupe</option>
+                                <option value="Hatchback">Hatchback</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Wagon">Wagon</option>
+                                <option value="Minivan">Minivan</option>
+                                <option value="Van">Van</option>
+                            </select>
                         </div>
-
                     </div>
-
+                    
                     <div class="parameter">
                         <label for="drivetrain">Drivetrain:</label>
                         <div class="parameter__input">
-                            <input id="drivetrain" name="drivetrain" type="text">
+                            <select id="drivetrain" name="drivetrain">
+                                <option value="fwd">FWD</option>
+                                <option value="rwd">RWD</option>
+                                <option value="awd">AWD</option>
+                                <option value="4wd">4WD</option>
+                            </select>
                         </div>
-
                     </div>
-
+                    
                     <div class="parameter">
                         <label for="transmission">Transmission:</label>
                         <div class="parameter__input">
-                            <input id="transmission" name="transmission" type="text">
+                            <select id="transmission" name="transmission">
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                                <option value="Automated_manual">Automated Manual</option>
+                                <option value="Direct_drive">Direct Drive</option>
+                            </select>
                         </div>
-
                     </div>
+                    
 
                     <div class="parameter">
                         <label for="engine_hp">Engine HP:</label>
                         <div class="parameter__input">
                             <input id="engine_hp" name="engine_hp" type="number">
-                            <button class="input__button" onclick="decrementValue('engine_hp')">-</button>
-                            <button class="input__button" onclick="incrementValue('engine_hp')">+</button>
+                            <button class="input__button" data-action="decrement" onclick="decrementValue('year')">-</button>
+                            <button class="input__button" data-action="increment" onclick="incrementValue('year')">+</button>
                         </div>
 
 
@@ -89,8 +107,8 @@
                         <label for="highway">Highway l/100km:</label>
                         <div class="parameter__input">
                             <input id="highway" name="highway" type="number">
-                            <button class="input__button" onclick="decrementValue('highway')">-</button>
-                            <button class="input__button" onclick="incrementValue('highway')">+</button>
+                            <button class="input__button" data-action="decrement" onclick="decrementValue('year')">-</button>
+                            <button class="input__button" data-action="increment" onclick="incrementValue('year')">+</button>
                         </div>
 
                     </div>
@@ -99,21 +117,17 @@
                         <label for="city">City l/100km:</label>
                         <div class="parameter__input">
                             <input id="city" name="city" type="number"><br><br>
-                            <button class="input__button" onclick="decrementValue('city')">-</button>
-                            <button class="input__button" onclick="incrementValue('city')">+</button>
+                            <button class="input__button" data-action="decrement" onclick="decrementValue('year')">-</button>
+                            <button class="input__button" data-action="increment" onclick="incrementValue('year')">+</button>
                         </div>
 
                     </div>
                     <button class="predict-btn" type="submit">Predict</button>
-                    <!-- Repeat for each parameter -->
                 </form>
             </div>
         </div>
         <div class="note">
-            <p>Note: This A.I application is for educational/demo purposes only and cannot be relied upon. Check
-                the
-                source
-                code <a href="https://github.com/vivch1k/web-api-car-price-prediction/tree/master">here</a>.</p>
+            <p>Note: This A.I application is for educational/demo purposes only and cannot be relied upon. Check the source code <a href="https://github.com/vivch1k/web-api-car-price-prediction/tree/master">here</a>.</p>
         </div>
     </div>
 </body>
